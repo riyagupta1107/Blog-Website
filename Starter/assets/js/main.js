@@ -37,6 +37,12 @@ menuToggleIcon.addEventListener('click', toggleMenu);
 // Switch theme/add to local storage
 const bodyElement = document.body;
 const themeToggleBtn = selectElement('#theme-toggle-btn');
+const currentTheme = localStorage.getItem('currentTheme');
+
+
+if (currentTheme) {
+    bodyElement.classList.add('light-theme');
+}
 
 themeToggleBtn.addEventListener('click',() => {
     bodyElement.classList.toggle('light-theme');
@@ -44,7 +50,7 @@ themeToggleBtn.addEventListener('click',() => {
     if (bodyElement.classList.contains('light-theme')) {
         localStorage.setItem('currentTheme', 'themeActive'); //key-value pair
     } else {
-        localStorage.setItem('currentTheme', 'themeActive');
+        localStorage.removeItem('currentTheme');
     }
 });
 // Swiper
